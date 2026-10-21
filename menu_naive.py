@@ -1,27 +1,27 @@
-"""ПЕРВАЯ (наивная) версия MenuModule — без валидации.
+"""ПЕРВАЯ (наивная) версия HabitModule — без валидации.
 Нужна только для воспроизведения багов (см. demo_bugs.py и report_lab3.md).
 """
 
 
-class MenuModule:
-    def __init__(self, dishes=None):
-        if dishes is None:
-            dishes = [
-                {"id": 1, "name": "Борщ", "category": "суп", "price": 120, "available": True},
-                {"id": 2, "name": "Солянка", "category": "суп", "price": 140, "available": False},
-                {"id": 3, "name": "Котлета с пюре", "category": "второе", "price": 180, "available": True},
-                {"id": 4, "name": "Греча с курицей", "category": "второе", "price": 160, "available": True},
-                {"id": 5, "name": "Цезарь", "category": "салат", "price": 150, "available": True},
-                {"id": 6, "name": "Компот", "category": "напиток", "price": 40, "available": True},
+class HabitModuleNaive:
+    def __init__(self, habits=None):
+        if habits is None:
+            habits = [
+                {"id": 1, "name": "Пить воду", "category": "здоровье", "periodicity": "daily", "target_time": "09:00", "available": True},
+                {"id": 2, "name": "Медитация", "category": "здоровье", "periodicity": "daily", "target_time": "08:00", "available": False},
+                {"id": 3, "name": "Зарядка", "category": "спорт", "periodicity": "daily", "target_time": "07:30", "available": True},
+                {"id": 4, "name": "Бег", "category": "спорт", "periodicity": "weekly", "target_time": "18:00", "available": True},
+                {"id": 5, "name": "Чтение книги", "category": "развитие", "periodicity": "daily", "target_time": "21:00", "available": True},
+                {"id": 6, "name": "Уборка", "category": "быт", "periodicity": "weekly", "target_time": "12:00", "available": True},
             ]
-        self._dishes = dishes
+        self._habits = habits
 
-    def get_filtered_menu(self, category=None, only_available=False):
+    def get_filtered_habits(self, category=None, only_available=False):
         result = []
-        for d in self._dishes:
-            if category is not None and d["category"] != category:
+        for h in self._habits:
+            if category is not None and h["category"] != category:
                 continue
-            if only_available and not d["available"]:
+            if only_available and not h["available"]:
                 continue
-            result.append(d)
+            result.append(h)
         return result
