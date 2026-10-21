@@ -15,7 +15,7 @@ python test_menu.py   # ожидается: 20 PASS, 0 FAIL
 python demo_bugs.py   # воспроизведение багов на наивной версии
 Требуется Python 3.8+, внешние библиотеки не нужны.
 
-# 
+# Пример
 from menu import HabitModule
 
 m = HabitModule()
